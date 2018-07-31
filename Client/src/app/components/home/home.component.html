@@ -1,0 +1,18 @@
+  <div class="row">
+    <div class="col-12 main-header">
+        <h1>Stiky plz</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+      <div class="col-12">
+        Select a project below to see tickets, or create a new project
+      </div>
+  </div> 
+  <div class="row">
+    <div class="col-12 text-center">
+        <h3>Projects</h3>
+    </div>
+    <div class="project col-12" *ngFor="let project of projects">
+      {{project.name}}
+    </div>
+  </div>
