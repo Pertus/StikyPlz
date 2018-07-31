@@ -8,7 +8,7 @@ namespace Backend.Interfaces
 {
     public interface IProjectService
     {
-        Task<List<Project>> GetProjects();
-        Task<Project> CreateProject();
+        Task<List<ProjectModel>> GetProjects();
+        Task<ProjectModel> CreateProject();
     }
 }

@@ -8,6 +8,6 @@ namespace Backend.Interfaces
 {
     public interface ITicketService
     {
-        Task<List<Ticket>> GetTicketsForProject(int projectId);
+        Task<List<TicketModel>> GetTicketsForProject(int projectId);
     }
 }

@@ -22,11 +22,11 @@ namespace Backend.Services
             _mapper = mapper;
         }
 
-        public async Task<List<Ticket>> GetTicketsForProject(int projectId)
+        public async Task<List<TicketModel>> GetTicketsForProject(int projectId)
         {
             var tickets = await _unitOfWork.TicketRepository.GetList(selector: x => x, include: x => x.Include(y => y.Project), 
                 predicate: x => x.ProjectId == projectId && !x.Deleted);
-            var model = _mapper.Map<List<Ticket>>(tickets);
+            var model = _mapper.Map<List<TicketModel>>(tickets);
 
             return model;
             

@@ -13,4 +13,9 @@
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\..\..\Client\src\app\interfaces\project.ts" Link="Models\project.ts" />
+    <None Include="..\..\..\Client\src\app\interfaces\ticket.ts" Link="Models\ticket.ts" />
+  </ItemGroup>
+
 </Project>
