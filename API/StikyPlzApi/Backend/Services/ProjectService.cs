@@ -19,15 +19,15 @@ namespace Backend.Services
             _mapper = mapper;
         }
 
-        public async Task<Project> CreateProject()
+        public async Task<ProjectModel> CreateProject()
         {
             throw new NotImplementedException();
         }
 
-        public async Task<List<Project>> GetProjects()
+        public async Task<List<ProjectModel>> GetProjects()
         {
             var projects = await _unitOfWork.ProjectRepository.GetList(selector: x => x, predicate: x => !x.Deleted);
-            var model = _mapper.Map<List<Project>>(projects);
+            var model = _mapper.Map<List<ProjectModel>>(projects);
 
             return model;
         }

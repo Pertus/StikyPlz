@@ -1,0 +1,10 @@
+@import 'variables.scss';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: white;
+
+  height: 100%;
+  background-color: $dark;
+}

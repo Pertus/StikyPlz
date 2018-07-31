@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TicketService } from '../../services/ticket.service';
-import { ProjectService } from '../../services/project.service';
+import { ProjectService } from '../../shared/services/project.service';
 
 @Component({
   selector: 'app-home',

@@ -1,21 +1,4 @@
-﻿${
-    // Enable extension methods by adding using Typewriter.Extensions.*
-    using Typewriter.Extensions.Types;
-
-    // Uncomment the constructor to change template settings.
-    //Template(Settings settings)
-    //{
-    //    settings.IncludeProject("Project.Name");
-    //    settings.OutputExtension = ".tsx";
-    //}
-
-    // Custom extension methods can be used in the template by adding a $ prefix e.g. $LoudName
-    string LoudName(Property property)
-    {
-        return property.Name.ToUpperInvariant();
-    }
-}
-module Backend.Models {
+﻿module Backend.Models {
 
     // $Classes/Enums/Interfaces(filter)[template][separator]
     // filter (optional): Matches the name or full name of the current item. * = match any, wrap in [] to match attributes or prefix with : to match interfaces or base classes.
@@ -27,8 +10,8 @@ module Backend.Models {
     $Classes(*Model)[
     export class $Name {
         $Properties[
-        // $LoudName
-        public $name: $Type = $Type[$Default];]
+
+        public $name: $Type]
     }]
 }
 
@@ -38,9 +21,9 @@ ${
         settings.OutputFilenameFactory = file => 
         {
 			var fileName = file.Name.Replace(".cs", "");
-			fileName = fileName.Replace("Model", "");
-			fileName = fileName.ToLower() + ".ts";
-            return "../../../../Client/src/app/interfaces/" + fileName;
+            fileName = char.ToLower(fileName[0]) + fileName.Substring(1);
+			fileName = fileName + ".ts";
+            return "../../../../Client/src/app/shared/interfaces/" + fileName;
         };
     }
 }

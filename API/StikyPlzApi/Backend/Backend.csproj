@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\Client\src\app\interfaces\project.ts" Link="Models\project.ts" />
-    <None Include="..\..\..\Client\src\app\interfaces\ticket.ts" Link="Models\ticket.ts" />
+    <None Include="..\..\..\Client\src\app\shared\interfaces\projectModel.ts" Link="Models\projectModel.ts" />
+    <None Include="..\..\..\Client\src\app\shared\interfaces\ticketModel.ts" Link="Models\ticketModel.ts" />
   </ItemGroup>
 
 </Project>

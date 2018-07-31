@@ -1,4 +1,6 @@
+@import '../../../assets/styles/variables.scss';
+
 .main-header{
     text-align: center;
-    background-color: white;
+    border-bottom: 1px solid $green;
 }
