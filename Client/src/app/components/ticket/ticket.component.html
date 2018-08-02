@@ -1,0 +1,38 @@
+<div class="row heading">
+    <div class="col-12 text-center">
+        <h3>{{ticket?.title}}</h3>
+    </div>
+</div>
+<div class="main-area">
+
+    <div class="row info-row">
+        <div class="col-12">
+            {{ticket?.description}}
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="row info-row">
+        <div class="col-12">
+            Created: {{ticket?.created | date:'yyyy-MM-dd'}}
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="row info-row">
+        <div class="col-12">
+            Modified: {{ticket?.modified | date:'yyyy-MM-dd'}}
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="button" routerLink="/project/{{ticket?.projectId}}">
+            Back to project
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="button" routerLink="/ticket/edit/{{ticket?.id}}">
+            Edit ticket
+        </div>
+    </div>
+</div>

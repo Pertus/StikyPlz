@@ -9,9 +9,9 @@ import { AppConfig } from '../environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  private spinnerTemplate = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
   constructor(public electronService: ElectronService,
     private translate: TranslateService) {
-
     translate.setDefaultLang('en');
     console.log('AppConfig', AppConfig);
 

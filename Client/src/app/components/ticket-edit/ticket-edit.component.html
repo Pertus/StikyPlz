@@ -1,0 +1,35 @@
+<div class="row heading">
+  <div class="col-12 text-center">
+    <h3>Edit ticket</h3>
+  </div>
+</div>
+<div class="main-area">
+  <form #ticketForm="ngForm">
+    <mat-form-field appearance="legacy">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="ticket.title" name="title">
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Description</mat-label>
+      <textarea rows="2" matInput [(ngModel)]="ticket.description" name="description"></textarea>
+    </mat-form-field>
+  </form>
+  <div class="row">
+    <div class="col-12">
+      <div class="button button--warning" (click)="deleteTicket()">Delete ticket</div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <div class="button" routerLink="/ticket/{{ticket?.id}}">
+      Back to ticket
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="button" (click)="editTicket()">
+      Save
+    </div>
+  </div>
+</div>

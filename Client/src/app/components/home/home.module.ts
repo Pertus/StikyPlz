@@ -7,7 +7,6 @@ import { ProjectModule } from '../project/project.module';
 @NgModule({
   imports: [
     SharedModule,
-    ProjectModule
   ],
   declarations: [HomeComponent],
   exports: [HomeComponent]

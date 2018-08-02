@@ -12,7 +12,10 @@ namespace Backend.AutoMapper
         public MappingProfile()
         {
             CreateMap<tblTicket, TicketModel>();
+            CreateMap<TicketCreateModel, tblTicket>();
+
             CreateMap<tblProject, ProjectModel>();
+            CreateMap<ProjectCreateModel, tblProject>();
         }
     }
 }

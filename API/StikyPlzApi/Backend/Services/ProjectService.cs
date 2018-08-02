@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Backend.EntityModels;
 using Backend.Interfaces;
 using Backend.Models;
 using System;
@@ -19,9 +20,23 @@ namespace Backend.Services
             _mapper = mapper;
         }
 
-        public async Task<ProjectModel> CreateProject()
+        public async Task<ProjectModel> CreateProject(ProjectCreateModel model)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<tblProject>(model);
+            var project = await _unitOfWork.ProjectRepository.Add(entity);
+            await _unitOfWork.Commit();
+
+            var result = _mapper.Map<ProjectModel>(project);
+
+            return result;
+        }
+
+        public async Task<ProjectModel> GetProject(int id)
+        {
+            var project = await _unitOfWork.ProjectRepository.Find(id);
+            var model = _mapper.Map<ProjectModel>(project);
+
+            return model;
         }
 
         public async Task<List<ProjectModel>> GetProjects()

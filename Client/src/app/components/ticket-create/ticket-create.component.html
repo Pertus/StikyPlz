@@ -1,0 +1,36 @@
+<div class="row heading">
+  <div class="col-12 text-center">
+    <h3>Create ticket</h3>
+  </div>
+</div>
+<div class="main-area">
+  <form #ticketForm="ngForm">
+    <mat-form-field appearance="legacy">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="ticket.title" name="title">
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Description</mat-label>
+      <textarea rows="2" matInput [(ngModel)]="ticket.description" name="description"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Project" [(value)]="ticket.projectId">
+        <mat-option *ngFor="let project of projects" [value]="project.id">
+          {{project.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div class="row">
+  <div class="col-6">
+    <div class="button" routerLink="/project/{{project?.id}}">
+      Back to project
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="button" (click)="createTicket()">
+      Create
+    </div>
+  </div>
+</div>

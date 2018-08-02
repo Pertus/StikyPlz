@@ -1,7 +1,23 @@
-<div class="row project">
-  <div class="col-12">
-    <div class="project__inner">
-        {{project.name}}
+<div class="row heading">
+  <div class="col-12 text-center">
+    <h3>{{project?.name}}</h3>
+  </div>
+</div>
+<div class="main-area">
+  <ng-container *ngFor="let ticket of tickets">
+    <app-ticket-list-item [ticket]="ticket"></app-ticket-list-item>
+  </ng-container>
+  <div *ngIf="tickets?.length == 0">No tickets yet</div>
+</div>
+<div class="row">
+  <div class="col-6">
+    <div class="button" routerLink="/">
+      Back to project list
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="button" routerLink="/ticket/create/{{project?.id}}">
+      Create new ticket
     </div>
   </div>
 </div>

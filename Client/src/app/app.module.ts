@@ -20,6 +20,14 @@ import { WebviewDirective } from './directives/webview.directive';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HomeModule } from './components/home/home.module';
+import { ProjectModule } from './components/project/project.module';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { TicketCreateModule } from './components/ticket-create/ticket-create.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProjectCreateModule } from './components/project-create/project-create.module';
+import { TicketModule } from './components/ticket/ticket.module';
+import { TicketEditModule } from './components/ticket-edit/ticket-edit.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -33,17 +41,24 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HomeModule,
+    ProjectModule,
+    TicketCreateModule,
+    ProjectCreateModule,
+    Ng4LoadingSpinnerModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule,
-    HomeModule,
+    TicketModule,
+    TicketEditModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
       }
-    })
+    }),
   ],
   providers: [ElectronService],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../shared/services/project.service';
+import { Ng4LoadingSpinnerService } from '../../../../node_modules/ng4-loading-spinner';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +11,13 @@ export class HomeComponent implements OnInit {
 
   public projects: any[];
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService, private spinnerService: Ng4LoadingSpinnerService) { }
 
   ngOnInit() {
+    this.spinnerService.show();
     this.projectService.GetProjects().subscribe(res => {
-      console.log(res);
       this.projects = res;
+      this.spinnerService.hide();
     });
   }
 

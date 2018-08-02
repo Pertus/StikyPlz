@@ -37,9 +37,14 @@
     "e2e": "npm run postinstall:web && ng e2e"
   },
   "dependencies": {
-    "@angular/animations": "^6.1.0",
-    "@angular/cdk": "^6.4.1",
-    "@angular/material": "^6.4.1"
+    "@angular/animations": "^6.0.5",
+    "@angular/cdk": "^6.4.2",
+    "@angular/material": "^6.4.2",
+    "angular-font-awesome": "^3.1.2",
+    "font-awesome": "^4.7.0",
+    "ng-drag-drop": "^5.0.0",
+    "ng4-loading-spinner": "^1.2.3",
+    "npm": "^6.2.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.6.3",

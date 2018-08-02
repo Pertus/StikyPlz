@@ -44,13 +44,15 @@ namespace Backend.Repositories
             return entity;
         }
 
-        public virtual async Task<bool> Delete(T entity)
+        public virtual async Task<bool> Delete(params object[] keyValues)
         {
-            T existing = await _dbContext.Set<T>().FindAsync(entity);
+            T existing = await _dbContext.Set<T>().FindAsync(keyValues);
 
             if(existing != null)
             {
-                _dbContext.Set<T>().Remove(existing);
+                var type = existing.GetType();
+                var prop = type.GetProperty("Deleted");
+                prop?.SetValue(existing, true, null);
                 return true;
             }
 

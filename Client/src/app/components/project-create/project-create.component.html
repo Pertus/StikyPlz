@@ -1,0 +1,25 @@
+<div class="row heading">
+  <div class="col-12 text-center">
+    <h3>Create project</h3>
+  </div>
+</div>
+<div class="main-area">
+  <form #projectForm="ngForm">
+    <mat-form-field appearance="legacy">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="project.name" name="name">
+    </mat-form-field>
+  </form>
+</div>
+<div class="row">
+  <div class="col-6">
+    <div class="button" routerLink="/">
+      Back to project list
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="button" (click)="createProject()">
+      Create project
+    </div>
+  </div>
+</div>

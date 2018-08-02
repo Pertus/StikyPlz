@@ -17,7 +17,7 @@ namespace Backend.Interfaces
                                               bool disableTracking = true);
         Task<T> Find(params object[] keyValues);
         Task<T> Add(T entity);
-        Task<bool> Delete(T entity);
+        Task<bool> Delete(params object[] keyValues);
         T Update(T entity);
         T SetCreatedDate(T entity);
         T SetModifiedDate(T entity);

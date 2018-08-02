@@ -22,6 +22,44 @@ namespace Backend.Services
             _mapper = mapper;
         }
 
+        public async Task<TicketModel> CreateTicket(TicketCreateModel model)
+        {
+            var entity = _mapper.Map<tblTicket>(model);
+            entity.Status = 1;
+            var ticket = await _unitOfWork.TicketRepository.Add(entity);
+            await _unitOfWork.Commit();
+
+            var result = _mapper.Map<TicketModel>(ticket);
+
+            return result;
+        }
+
+        public async Task<bool> DeleteTicket(int ticketId)
+        {
+            var result = await _unitOfWork.TicketRepository.Delete(ticketId);
+            await _unitOfWork.Commit();
+
+            return result;
+        }
+
+        public async Task<TicketModel> EditTicket(TicketModel model)
+        {
+            var ticket = _mapper.Map<tblTicket>(model);
+            var result = _unitOfWork.TicketRepository.Update(ticket);
+            await _unitOfWork.Commit();
+
+            var mapped = _mapper.Map<TicketModel>(result);
+            return mapped;
+        }
+
+        public async Task<TicketModel> GetTicket(int ticketId)
+        {
+            var ticket = await _unitOfWork.TicketRepository.Find(ticketId);
+            var model = _mapper.Map<TicketModel>(ticket);
+
+            return model;
+        }
+
         public async Task<List<TicketModel>> GetTicketsForProject(int projectId)
         {
             var tickets = await _unitOfWork.TicketRepository.GetList(selector: x => x, include: x => x.Include(y => y.Project), 
@@ -31,5 +69,7 @@ namespace Backend.Services
             return model;
             
         }
+
+        
     }
 }

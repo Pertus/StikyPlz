@@ -1,0 +1,16 @@
+<div class="row mb-2">
+  <div class="col-12">
+    <div class="button ticket" routerLink="/ticket/{{ticket.id}}">
+      <div class="row">
+        <div class="col-10">
+          {{ticket.title}}
+        </div>
+        <div class="col-2 status-icon" [ngSwitch]="ticket.status">
+          <fa name="bed" *ngSwitchCase="1"></fa>
+          <fa name="cog" *ngSwitchCase="2"></fa>
+          <fa name="check" *ngSwitchCase="3"></fa>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

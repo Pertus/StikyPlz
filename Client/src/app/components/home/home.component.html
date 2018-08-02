@@ -1,18 +1,23 @@
-<div class="row">
-  <div class="col-12 main-header">
-    <h1>Stiky plz</h1>
-  </div>
-</div>
-<div class="row justify-content-center">
-  <div class="col-12">
-    Select a project below to see tickets, or create a new project
-  </div>
-</div>
-<div class="row">
+<div class="row heading">
   <div class="col-12 text-center">
     <h3>Projects</h3>
   </div>
 </div>
-<ng-container *ngFor="let project of projects">
-  <app-project [project]="project"></app-project>
-</ng-container>
+<div class="main-area">
+  <ng-container *ngFor="let project of projects">
+    <div class="row mb-2">
+      <div class="col-12">
+        <div class="button" routerLink="/project/{{project.id}}">
+            {{project.name}}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="button" routerLink="/project/create">
+      Create new project
+    </div>
+  </div>
+</div>
