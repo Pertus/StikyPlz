@@ -4,10 +4,27 @@
   </div>
 </div>
 <div class="main-area">
-  <ng-container *ngFor="let ticket of tickets">
-    <app-ticket-list-item [ticket]="ticket"></app-ticket-list-item>
-  </ng-container>
-  <div *ngIf="tickets?.length == 0">No tickets yet</div>
+  <h5>Not started</h5>
+  <div class="sub-container" id="ticketsNotStarted" [dragula]="dragulaContainer" [(dragulaModel)]='ticketsNotStarted'>
+    <div *ngFor='let ticket of ticketsNotStarted'>
+      <app-ticket-list-item [ticket]="ticket"></app-ticket-list-item>
+    </div>
+    <div class="non-draggable" *ngIf="ticketsNotStarted?.length === 0">No tickets to show</div>
+  </div>
+  <h5>Progress</h5>
+  <div class="sub-container" id="ticketsProgress"  [dragula]="dragulaContainer" [(dragulaModel)]='ticketsProgress'>
+    <div *ngFor='let ticket of ticketsProgress'>
+      <app-ticket-list-item [ticket]="ticket"></app-ticket-list-item>
+    </div>
+    <div class="non-draggable" *ngIf="ticketsProgress?.length === 0">Nothing in progress</div>
+  </div>
+  <h5>Done</h5>
+  <div class="sub-container" id="ticketsDone"  [dragula]="dragulaContainer" [(dragulaModel)]='ticketsDone'>
+    <div *ngFor='let ticket of ticketsDone'>
+      <app-ticket-list-item [ticket]="ticket"></app-ticket-list-item>
+    </div>
+    <div class="non-draggable" *ngIf="ticketsDone?.length === 0">Nothing is done</div>
+  </div>
 </div>
 <div class="row">
   <div class="col-6">

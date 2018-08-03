@@ -28,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectCreateModule } from './components/project-create/project-create.module';
 import { TicketModule } from './components/ticket/ticket.module';
 import { TicketEditModule } from './components/ticket-edit/ticket-edit.module';
+import { DragulaModule } from 'ng2-dragula';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -52,6 +53,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     TicketModule,
     TicketEditModule,
+    DragulaModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

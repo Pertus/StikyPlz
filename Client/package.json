@@ -43,6 +43,7 @@
     "angular-font-awesome": "^3.1.2",
     "font-awesome": "^4.7.0",
     "ng-drag-drop": "^5.0.0",
+    "ng2-dragula": "^2.0.2",
     "ng4-loading-spinner": "^1.2.3",
     "npm": "^6.2.0"
   },

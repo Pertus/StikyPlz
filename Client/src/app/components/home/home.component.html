@@ -4,15 +4,17 @@
   </div>
 </div>
 <div class="main-area">
-  <ng-container *ngFor="let project of projects">
-    <div class="row mb-2">
-      <div class="col-12">
-        <div class="button" routerLink="/project/{{project.id}}">
+  <div class="sub-container">
+    <ng-container *ngFor="let project of projects">
+      <div class="row mb-2">
+        <div class="col-12">
+          <div class="button" routerLink="/project/{{project.id}}">
             {{project.name}}
+          </div>
         </div>
       </div>
-    </div>
-  </ng-container>
+    </ng-container>
+  </div>
 </div>
 <div class="row">
   <div class="col-12">
