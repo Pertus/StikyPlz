@@ -16,6 +16,7 @@ namespace Backend.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+
         public TicketService(IMapper mapper)
         {
             _unitOfWork = new UnitOfWork.UnitOfWork();

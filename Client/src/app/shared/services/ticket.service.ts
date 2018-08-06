@@ -9,7 +9,7 @@ import { TicketModel } from '../interfaces/ticketModel';
   providedIn: 'root'
 })
 export class TicketService {
-  private baseUrl = AppConfig.apiUrl;
+  private baseUrl = AppConfig.apiUrl + '/api';
 
   constructor(private http: HttpClient) { }
 

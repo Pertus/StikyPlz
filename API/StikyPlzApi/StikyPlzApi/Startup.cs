@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using AutoMapper;
 using Backend.Services;
 using Newtonsoft.Json.Serialization;
+using StikyPlzApi.Hubs;
 
 namespace StikyPlzApi
 {
@@ -28,9 +29,6 @@ namespace StikyPlzApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddMvc().AddJsonOptions(opts => { opts.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver(); });
-
             services.AddCors(options =>
             {
                 options.AddPolicy("Public",
@@ -40,8 +38,14 @@ namespace StikyPlzApi
                         builder.AllowAnyOrigin();
                         builder.AllowCredentials();
                         builder.AllowAnyMethod();
+                        builder.WithOrigins("http://localhost:4200");
                     });
             });
+
+            services.AddSignalR();
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().AddJsonOptions(opts => { opts.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver(); });
 
             services.AddAutoMapper();
             services.AddServiceCollection();
@@ -61,6 +65,11 @@ namespace StikyPlzApi
 
             app.UseHttpsRedirection();
             app.UseCors("Public");
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<TicketHub>("/hubs/ticket");
+                routes.MapHub<ProjectHub>("/hubs/project");
+            });
             app.UseMvc();
             
         }

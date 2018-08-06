@@ -6,6 +6,8 @@ using Backend.Interfaces;
 using Backend.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using StikyPlzApi.Hubs;
 
 namespace StikyPlzApi.Controllers
 {
@@ -14,9 +16,11 @@ namespace StikyPlzApi.Controllers
     public class ProjectController : ControllerBase
     {
         private readonly IProjectService _projectService;
-        public ProjectController(IProjectService projectService)
+        private IHubContext<ProjectHub> _hubContext;
+        public ProjectController(IProjectService projectService, IHubContext<ProjectHub> hubContext)
         {
             _projectService = projectService;
+            _hubContext = hubContext;
         }
 
         [HttpGet]
@@ -40,6 +44,7 @@ namespace StikyPlzApi.Controllers
         public async Task<IActionResult> CreateProject(ProjectCreateModel model)
         {
             var result = await _projectService.CreateProject(model);
+            await this._hubContext.Clients.All.SendAsync("newProject", result);
             return Ok(result);
         }
     }

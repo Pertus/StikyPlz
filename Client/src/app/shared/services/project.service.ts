@@ -8,7 +8,7 @@ import { ProjectCreateModel } from '../interfaces/projectCreateModel';
   providedIn: 'root'
 })
 export class ProjectService {
-  private baseUrl = AppConfig.apiUrl;
+  private baseUrl = AppConfig.apiUrl + '/api';
   constructor(private http: HttpClient) { }
 
   GetProjects(): Observable<any> {

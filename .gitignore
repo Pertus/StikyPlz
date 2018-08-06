@@ -228,6 +228,8 @@ ClientBin/
 *.publishsettings
 node_modules/
 bower_components/
+dist/
+app-builds/
 orleans.codegen.cs
 
 # RIA/Silverlight projects
