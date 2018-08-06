@@ -29,6 +29,9 @@ import { ProjectCreateModule } from './components/project-create/project-create.
 import { TicketModule } from './components/ticket/ticket.module';
 import { TicketEditModule } from './components/ticket-edit/ticket-edit.module';
 import { DragulaModule } from 'ng2-dragula';
+import { ServerErrorModule } from './shared/components/server-error/server-error.module';
+import { ServerErrorService } from './shared/services/server-error.service';
+import { MenuModule } from './shared/components/menu/menu.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -53,6 +56,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     TicketModule,
     TicketEditModule,
+    ServerErrorModule,
+    MenuModule,
     DragulaModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
@@ -62,7 +67,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
   ],
-  providers: [ElectronService],
+  providers: [ElectronService, ServerErrorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,30 @@
+@import '../../../../assets/styles/variables.scss';
+
+
+.main-header{
+    background-color: $darker;
+    color: white;
+    -webkit-app-region: drag;
+}
+
+.buttons {
+    height: 100%;
+    line-height: 48px;
+    text-align: center;
+    font-size: 30px;
+    -webkit-app-region: no-drag;
+}
+
+.menu-button{
+    cursor: pointer;
+    transition: all 150ms linear;
+    &:hover{
+        background-color: $medium-dark;
+    }
+}
+
+.menu-button--close{
+    &:hover{
+        background-color: $red;
+    }
+}
