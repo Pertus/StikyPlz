@@ -9,6 +9,7 @@ serve = args.some(function (val) { return val === '--serve'; });
 function createWindow() {
     var electronScreen = electron_1.screen;
     var size = electronScreen.getPrimaryDisplay().workAreaSize;
+    var tray = electron_1.Tray;
     // Create the browser window.
     win = new electron_1.BrowserWindow({
         x: 0,
@@ -16,7 +17,8 @@ function createWindow() {
         width: 450,
         height: 740,
         frame: false,
-        resizable: false
+        resizable: false,
+        icon: path.join(__dirname, 'src/assets/img/icon.png')
     });
     if (serve) {
         require('electron-reload')(__dirname, {

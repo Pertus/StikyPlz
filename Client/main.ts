@@ -1,4 +1,4 @@
-import { app, BrowserWindow, screen } from 'electron';
+import { app, BrowserWindow, screen, Tray } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
@@ -10,6 +10,7 @@ function createWindow() {
 
   const electronScreen = screen;
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
+  const tray = Tray;
 
   // Create the browser window.
   win = new BrowserWindow({
@@ -18,7 +19,8 @@ function createWindow() {
     width: 450,
     height: 740,
     frame: false,
-    resizable: false
+    resizable: false,
+    icon: path.join(__dirname, 'src/assets/img/icon.png'),
   });
 
   if (serve) {
