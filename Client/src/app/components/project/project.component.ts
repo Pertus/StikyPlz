@@ -26,6 +26,8 @@ export class ProjectComponent implements OnInit, OnDestroy {
   public dragulaContainer = 'tickets';
   private _hubConnection: HubConnection;
   private apiUrl = AppConfig.apiUrl;
+  private audio = new Audio();
+
 
   subs = new Subscription();
 
@@ -64,6 +66,9 @@ export class ProjectComponent implements OnInit, OnDestroy {
 
       })
     );
+
+    this.audio.src = '../../../assets/audio/ticket.wav';
+    this.audio.load();
   }
 
   arrangeTickets() {
@@ -74,6 +79,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
 
   addTicket(ticket: TicketModel) {
     this.ticketsNotStarted.push(ticket);
+    this.audio.play();
   }
 
   removeTicket(id: number) {
@@ -87,6 +93,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
     const index = this.tickets.indexOf(_ticket);
     this.tickets[index] = ticket;
     this.arrangeTickets();
+    this.audio.play();
   }
 
   ngOnInit() {
