@@ -78,8 +78,11 @@ export class ProjectComponent implements OnInit, OnDestroy {
   }
 
   addTicket(ticket: TicketModel) {
-    this.ticketsNotStarted.push(ticket);
-    this.audio.play();
+    if (ticket.projectId === this.project.id) {
+      this.ticketsNotStarted.push(ticket);
+      this.audio.play();
+    }
+
   }
 
   removeTicket(id: number) {
@@ -89,11 +92,14 @@ export class ProjectComponent implements OnInit, OnDestroy {
   }
 
   updateTicket(ticket: TicketModel) {
-    const _ticket = this.tickets.find(x => x.id === ticket.id);
-    const index = this.tickets.indexOf(_ticket);
-    this.tickets[index] = ticket;
-    this.arrangeTickets();
-    this.audio.play();
+      const _ticket = this.tickets.find(x => x.id === ticket.id);
+
+      if (_ticket !== null) {
+        const index = this.tickets.indexOf(_ticket);
+        this.tickets[index] = ticket;
+        this.arrangeTickets();
+        this.audio.play();
+      }
   }
 
   ngOnInit() {

@@ -18,7 +18,7 @@ function createWindow() {
         height: 740,
         frame: false,
         resizable: false,
-        icon: path.join(__dirname, 'src/assets/img/icon.png')
+        icon: path.join(__dirname, 'dist/assets/img/icon.png')
     });
     if (serve) {
         require('electron-reload')(__dirname, {
