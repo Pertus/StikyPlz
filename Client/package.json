@@ -1,7 +1,7 @@
 {
-  "name": "angular-electron",
+  "name": "StikyPlz",
   "version": "4.1.0",
-  "description": "Angular 6 with Electron (Typescript + SASS + Hot Reload)",
+  "description": "Stikys for u",
   "homepage": "https://github.com/maximegris/angular-electron",
   "author": {
     "name": "Maxime GRIS",

@@ -1,5 +1,5 @@
 {
-  "productName": "angular-electron",
+  "productName": "Stiky Plz",
   "directories": {
     "output": "app-builds"
   },
@@ -20,19 +20,19 @@
         "!tslint.json"
     ],
   "win": {
-    "icon": "dist",
+    "icon": "dist/assets/img/icon.png",
     "target": [
-      "portable"
+      "nsis"
     ]
   },
   "mac": {
-    "icon": "dist",
+    "icon": "dist/assets/img/icon.png",
     "target": [
       "dmg"
     ]
   },
   "linux": {
-    "icon": "dist",
+    "icon": "dist/assets/img/icon.png",
     "target": [
       "AppImage"
     ]
